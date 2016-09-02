@@ -61,16 +61,22 @@ app.get('/api', function api_index(req, res) {
 
 app.get('/api/profile', function(req, res) {
   res.json({
-    profile: [
-      {name: "Alicia Brown",
+      name: "Alicia Brown",
       githubLink: "https://github.com/cabrown91",
       githubProfileImage: "https://avatars3.githubusercontent.com/u/19937807?v=3&s=460",
       personalSiteLink: "https://cabrown91.github.io/",
-      currentCity: "San Francisco, CA"}
-    ]
+      currentCity: "San Francisco, CA"
   });
 });
 
+app.get('/api/shows', function(req, res){
+  res.json({
+      name: "American Horror Story",
+      network: "FX",
+      description: "An anthology series that centers on different characters and locations, including a house with a murderous past, an insane asylum, a witch coven, a freak show, and an enigmatic hotel.",
+      image: "http://www.viralpiranha.com/wp-content/uploads/2016/06/Story41.jpg"
+  });
+});
 /**********
  * SERVER *
  **********/
