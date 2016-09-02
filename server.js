@@ -59,6 +59,18 @@ app.get('/api', function api_index(req, res) {
   });
 });
 
+app.get('/api/profile', function(req, res) {
+  res.json({
+    profile: [
+      {name: "Alicia Brown",
+      githubLink: "https://github.com/cabrown91",
+      githubProfileImage: "https://avatars3.githubusercontent.com/u/19937807?v=3&s=460",
+      personalSiteLink: "https://cabrown91.github.io/",
+      currentCity: "San Francisco, CA"}
+    ]
+  });
+});
+
 /**********
  * SERVER *
  **********/
