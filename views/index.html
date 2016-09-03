@@ -25,6 +25,17 @@
       <div class="row">
         <div class="col s12">
           <h1>Alicia's Personal API</h1>
+            <div id="profile-list">
+              <script id="profile-template" type="text/x-handlebars-template">
+                <div id="test-card" class="card">
+                  <img src="{{githubProfileImage}}">
+                  <h5> {{name}} </h5>
+                  <h5> {{currentCity}} </h5>
+                  <a href="{{githubLink}}">GitHub Link</a> <br>
+                  <a href="{{personalSiteLink}}">Personal Site Link</a>
+                </div>
+              </script>
+            </div>
           <div class="divider"></div>
           <div class="section"></div>
           <div class="row">
