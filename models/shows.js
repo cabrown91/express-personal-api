@@ -10,4 +10,4 @@ var mongoose = require('mongoose'),
 
   var Shows = mongoose.model('Shows', ShowsSchema);
 
-  module.exports.Shows = Shows;
+  module.exports = Shows;
