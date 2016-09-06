@@ -8,7 +8,7 @@
 
     <!-- STYLESHEETS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link rel="stylesheet" href="/styles/styles.css">
 
@@ -27,7 +27,7 @@
           <h1>Alicia's Personal API</h1>
             <div id="profile-list">
               <script id="profile-template" type="text/x-handlebars-template">
-                <div id="test-card" class="card">
+                <div id="profile-card" class="card center-align">
                   <img src="{{githubProfileImage}}">
                   <h5> {{name}} </h5>
                   <h5> {{currentCity}} </h5>
@@ -39,7 +39,8 @@
           <div class="divider"></div>
           <div class="section"></div>
           <div class="row">
-            <form class="col s12">
+            <h2> Create a Show </h2>
+            <form id="newShowForm" class="col s12">
               <div class="row">
                 <div class="input field" "col s12">
                   <label for="show_name">Name of Show</label>
@@ -62,9 +63,30 @@
                 </button>
               </div>
             </form>
+
+
+            <div id="showsTarget">
+                <!--handlebars template-->
+                  <script id="shows-template" type="text/x-handlebars-template">
+                      {{#each shows}}
+                      <hr>
+                      <p>
+                        <h3><b>{{name}}</b></h3>
+                        <img class="responsive-img" src="{{image}}">
+                          <b>{{network}}</b>
+                          <br>
+                          {{description}}
+                          <br>
+                        <button class="delete-btn" type="button" name="delete" data-id={{_id}}>
+                          <i class="material-icons">delete</i>
+                        </button>
+                      </p>
+                    {{/each}}
+                  </script>
+              <!-- </div> -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </body>
 </html>
