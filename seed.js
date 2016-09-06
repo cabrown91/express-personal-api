@@ -71,12 +71,14 @@ shows_list.push(
 
 
 
-
+db.Shows.remove({}, function(err, shows){
+  console.log("deleted", shows);
   db.Shows.create(shows_list, function(err, shows){
     if(err) {
       console.log(err);
       return;
     }
     console.log('created all shows');
-    console.lof('created', shows.length, 'shows');
+    console.log('created', shows.length, 'shows');
   });
+});
