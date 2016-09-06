@@ -70,13 +70,39 @@ app.get('/api/profile', function(req, res) {
 });
 
 app.get('/api/shows', function(req, res){
-  res.json({
-      name: "American Horror Story",
-      network: "FX",
-      description: "An anthology series that centers on different characters and locations, including a house with a murderous past, an insane asylum, a witch coven, a freak show, and an enigmatic hotel.",
-      image: "http://www.viralpiranha.com/wp-content/uploads/2016/06/Story41.jpg"
+  db.Shows.find(function(err, shows){
+  if(err) {
+    return console.log("index error:" + err);
+  }
+  res.json(shows);
   });
 });
+
+app.post('/api/shows', function(req, res){
+  var newShow = new db.Shows({
+    name: req.body.name,
+    network: req.body.network,
+    description: req.body.description,
+    image: req.body.image
+  });
+
+  newShow.save(function handleDBShowSaved(err, savedShow){
+    res.json(savedShow);
+  });
+
+});
+
+app.delete('/api/shows/:id', function(req, res){
+console.log('shows delete', req.params);
+
+var showId = req.params.id;
+
+db.Shows.findOneAndRemove({_id: showId}, function(err, deletedShow){
+  res.json(deletedShow);
+  });
+});
+
+
 /**********
  * SERVER *
  **********/
